@@ -23,8 +23,6 @@ function NewTicketForm(props){
         buttonText="Help" />
     </React.Fragment>
   );
-
-
 }
 
 NewTicketForm.propTypes = {
