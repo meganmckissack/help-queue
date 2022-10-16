@@ -40,12 +40,22 @@ class TicketControl extends React.Component {
     this.setState({selectedTicket: selectedTicket})
   }
 
+  handleDeletingTicket = (id) => {
+    const newMainTicketList = this.state.mainTicketList.filter(ticket => ticket.id !== id);
+    this.setState({
+      mainTicketList: newMainTicketList,
+      selectedTicket: null
+    })
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null; 
 
     if(this.state.selectedTicket != null) {
-      currentlyVisibleState = <TicketDetail ticket = {this.state.selectedTicket} />
+      currentlyVisibleState = 
+      <TicketDetail ticket = {this.state.selectedTicket} 
+        onClickingDelete = {this.handleDeletingTicket}/>
       buttonText= "Return to Ticket List"
       // While our TicketDetail component only takes placeholder data, we will eventually be passing the value of selectedTicket as a prop.
     } else if (this.state.formVisibleOnPage){
