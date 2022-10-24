@@ -8,11 +8,16 @@ import reducer from './reducers/ticket-list-reducer';
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer);
+store.subscribe(() => 
+  console.log(store.getState())
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>
 );
 

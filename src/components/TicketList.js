@@ -25,7 +25,7 @@ function TicketList(props){
     <React.Fragment>
     <hr />
     {/* loops through our mainTicketList. On each iteration, it creates a new Ticket with props corresponding to one of the tickets in mainTicketList */}
-    {props.ticketList.map((ticket) => 
+    {Object.values(props.ticketList).map((ticket) => 
       <Ticket 
         whenTicketClicked = { props.onTicketSelection }
         names={ticket.names}
@@ -39,7 +39,7 @@ function TicketList(props){
 }
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array,
+  ticketList: PropTypes.object,
   onTicketSelection: PropTypes.func
 };
 
