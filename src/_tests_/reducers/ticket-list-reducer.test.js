@@ -1,4 +1,5 @@
 import ticketListReducer from '../../reducers/ticket-list-reducer';
+import * as c from './../../actions/ActionTypes';
 
 // the first argument is the current state while the second argument is an action that will be applied to the current state.
 describe('tickListReducer', () => { 
@@ -19,7 +20,7 @@ describe('tickListReducer', () => {
 
   test('Should successfully delete a ticket', () => {
     action = {
-      type: 'DELETE_TICKET',
+      type: c.DELETE_TICKET,
       id: 1
     };
     
@@ -44,7 +45,7 @@ describe('tickListReducer', () => {
   test("Should succesfully add new ticket data to mainTicketList", () => {
     const { names, location, issue, id } = ticketData;
     action = {
-      type: 'ADD_TICKET',
+      type: c.ADD_TICKET,
       names: names,
       location: location,
       issue: issue,
