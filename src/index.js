@@ -4,10 +4,11 @@ import './index.css';
 import App from './components/App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers/ticket-list-reducer'; 
+// import reducer from './reducers/ticket-list-reducer'; 
 import reportWebVitals from './reportWebVitals';
+import rootReducer from './reducers';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 store.subscribe(() => 
   console.log(store.getState())
 );
