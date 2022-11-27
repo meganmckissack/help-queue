@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from 'prop-types';
+import { ThemeContext } from "../context/theme-context";
 
 function TicketDetail(props) {
   const { ticket, onClickingDelete, onClickingEdit } = props;
+
+  const theme = useContext(ThemeContext);
+
+  const styles = {
+    backgroundColor: theme.buttonBackground,
+    color: theme.textColor
+  }
 
   return (
     <React.Fragment>
@@ -10,7 +18,7 @@ function TicketDetail(props) {
       <h3>{ticket.location} - {ticket.names}</h3>
       <p><em>{ticket.issue}</em></p>
       <button onClick={ onClickingEdit }>Update Ticket</button> 
-      <button onClick={() => onClickingDelete(ticket.id) }>
+      <button style={styles} onClick={() => onClickingDelete(ticket.id) }>
         Close Ticket
       </button>
       <hr />
